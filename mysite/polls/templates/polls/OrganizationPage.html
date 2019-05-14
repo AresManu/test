@@ -1,0 +1,36 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+
+<!--<div class="topnav">
+  <a class="active" href="{% url 'polls:testGH' %}">Home</a>
+  <a href="#news">News</a>
+</div>-->
+
+<h1>
+  Organization page {{usergit}}
+</h1>
+<br>
+{% for orga,members in finaldict.items %}
+    <li><a href="{% url 'polls:OrganizationDetail' orga %}">{{orga}}</a>
+          {% for member,repos in members.items %}
+          <ul>
+          <li> Membre: {{member}}</li>
+            {% for repo in repos %}
+            <ul>
+            <li>{{repo}}</li>
+            </ul>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+    </li>
+{% endfor %}
+
+<h3>DEBUG CORNER</h3>
+{{DEBUG}}
+
+
+</html>

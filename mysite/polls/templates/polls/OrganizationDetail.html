@@ -1,0 +1,26 @@
+{% load static %}
+<html id="demo">
+<head>
+  <title>GitHubDash by Belmalévi</title>
+  <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+
+<h1>
+  Organization Details: {{organame}}
+</h1>
+<br>
+
+{% for member,repos in detaildict.items %}
+<ul>
+<li> Membre: {{member}}</li>
+  {% for repo in repos %}
+  <ul>
+  <li>{{repo}}</li>
+  </ul>
+  {% endfor %}
+</ul>
+{% endfor %}
+
+<h3>DEBUG CORNER</h3>
+{{DEBUG}}
+</html>
